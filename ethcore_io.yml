@@ -1,0 +1,7 @@
+- include: install-python.yml
+
+- hosts:
+    - ethcore-io-server
+  roles:
+    - role: common
+    - role: ethcore-io-server
