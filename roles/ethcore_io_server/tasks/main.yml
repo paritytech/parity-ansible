@@ -1,0 +1,41 @@
+- name: copy deployment key to server
+  copy: src={{ deploy_key }} dest="{{ base_dir }}/.ssh/{{ app_name }}" mode=600
+  tags: update
+
+- name: "clone git repository (ssh): {{ repo }}"
+  git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}"
+  tags: update
+
+- name: npm install gulp
+  become: yes
+  npm: name=gulp global=yes
+
+- name: npm install locals
+  npm:  production=yes path={{install_dir}}
+  tags: update
+
+- name: copy nginx config
+  template: src=nginx.conf dest=/etc/nginx/sites-available/{{ app_name }}
+  tags: update
+
+- name: link sites-availible to sites-enabled
+  file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} state=link
+  tags:
+  - update
+  
+- name: build assets
+  shell: gulp production chdir={{install_dir}}
+  tags:
+    - update
+    - test
+  notify: reload nginx
+
+# # getting "Permission denied" when serving directly from app dir; not sure why
+- name: copy assets to {{server_dir}}
+  shell: cp -r {{install_dir}}/dist {{server_dir}}
+  tags:
+    - update
+    - test
+  notify: reload nginx
+
+  

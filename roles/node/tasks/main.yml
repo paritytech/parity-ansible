@@ -1,0 +1,6 @@
+- name: add nodejs PPA
+  shell: curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+
+- name: install nodejs
+  sudo: yes
+  apt: state=present update_cache=yes pkg=nodejs

@@ -1,7 +1,18 @@
-- include: install-python.yml
+- hosts: all
+  gather_facts: no
+  tags: dependency
+  tasks:
+    - name: wait for port 22 to be ready
+      sudo: no
+      local_action: wait_for port=22 host="{{ inventory_hostname }}"  
+    - name: install python
+      sudo: yes
+      raw: apt-get install -y python
+# - include: install_python.yml
+#   tags: "dependency"
 
 - hosts:
     - ethcore-io-server
   roles:
-    - role: common
-    - role: ethcore-io-server
+    - { role: common, tags: "dependency" }
+    - { role: ethcore_io_server, tags: "ethcore-io" }

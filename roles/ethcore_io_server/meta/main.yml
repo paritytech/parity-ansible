@@ -1,0 +1,3 @@
+dependencies:
+  - { role: nginx, tags: "dependency", sudo: yes }
+  - { role: node, tags: "dependency"}
