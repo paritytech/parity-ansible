@@ -1,0 +1,4 @@
+- name: restart pm2
+  shell: pm2 startOrRestart "{{pm2_config_path}}"
+
+

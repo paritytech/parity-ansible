@@ -1,0 +1,36 @@
+- set_fact: mongo_unlocked=yes
+
+- name: copy over the mongod init config file (auth off)
+  template: src=mongo.conf dest={{mongodb_config_path}}
+
+
+# the docker-ansible module seems bugged (https://github.com/cove/docker-ansible/issues/22)
+# state: restarted stops and removes the container; screw it
+- name: start the mongo docker container
+  shell: docker rm --force mongodb || true && docker pull jesuscript/mongodb && docker run -v {{mongodb_config_path}}:{{mongodb_config_path_docker}} -v {{base_dir}}/data/db:/data/db --name mongodb -p 27017:27017 -d jesuscript/mongodb /usr/bin/mongod --config {{mongodb_config_path_docker}}
+
+- name: install pymongo
+  pip: name=pymongo
+
+- name: create an admin user
+  mongodb_user: database=admin name={{ mongo_admin_user }} password={{ mongo_admin_pass }} 
+  
+- set_fact: mongo_unlocked=no
+
+- name: copy over the mongod init config file (auth on)
+  template: src=mongo.conf dest={{mongodb_config_path}}
+
+- name: restart mongodb
+  shell: docker restart mongodb
+
+- name: create a read-write user
+  mongodb_user: database={{ mongo_db_name }} name={{ mongo_rw_user }} password={{ mongo_rw_pass }} login_user={{ mongo_admin_user }} login_password={{ mongo_admin_pass }}
+  when: mongo_rw_user is defined and mongo_rw_pass is defined and mongo_db_name is defined
+
+    
+- name: open mongo port
+  ufw: rule=allow port=27017 proto=tcp
+  when: not restrict_to_localhost
+  notify: reload ufw
+
+

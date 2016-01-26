@@ -2,5 +2,4 @@ app_name: website
 repo: git@github.com:ethcore/website.git
 install_dir: "{{base_dir}}/{{app_name}}"
 server_dir: "/var/www/{{app_name}}"
-#server_dir: "{{install_dir}}/dist"
 domain_name: ethcore.io

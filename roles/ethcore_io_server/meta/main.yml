@@ -1,3 +1,4 @@
 dependencies:
-  - { role: nginx, tags: "dependency", sudo: yes }
-  - { role: node, tags: "dependency"}
+  - { role: common, tags: "common" }
+  - { role: nginx, tags: "nginx" }
+  - { role: node, tags: "node" }

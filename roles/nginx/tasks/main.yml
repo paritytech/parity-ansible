@@ -1,20 +1,24 @@
 ---
 - name: install nginx
+  become: yes
   apt: name=nginx state=present
 
 - name: Copy nginx configuration for server
+  become: yes
   template: src=nginx.conf dest=/etc/nginx/nginx.conf
   notify:
   - restart nginx
   
 - name: start nginx
-  sudo: yes
+  become: yes
   service: name=nginx state=started enabled=true
 
 - name: open HTTP port
+  become: yes
   ufw: rule=allow port=80 proto=tcp
   notify: reload ufw
 
 - name: open HTTPS port
+  become: yes
   ufw: rule=allow port=443 proto=tcp
   notify: reload ufw

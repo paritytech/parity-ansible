@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "{{app_name}}",
+    "script": "app.js",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "cwd": "{{ app_name }}",
+    "env": {
+      "PORT": "{{ port }}",
+      "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}"
+    }
+  }]
+}

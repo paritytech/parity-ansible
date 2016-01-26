@@ -27,7 +27,6 @@
   shell: gulp production chdir={{install_dir}}
   tags:
     - update
-    - test
   notify: reload nginx
 
 # # getting "Permission denied" when serving directly from app dir; not sure why
@@ -35,7 +34,6 @@
   shell: cp -r {{install_dir}}/dist {{server_dir}}
   tags:
     - update
-    - test
   notify: reload nginx
 
   

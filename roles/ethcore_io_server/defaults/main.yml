@@ -1,0 +1,2 @@
+deploy_key: ./group_vars/ssh_keys/ethcore_io_deploy
+

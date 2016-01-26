@@ -1,0 +1,5 @@
+- name: restart mongodb
+  docker:
+    state: restarted
+    name: mongodb
+    image: jesuscript/mongodb

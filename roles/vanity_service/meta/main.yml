@@ -1,0 +1,3 @@
+dependencies:
+  - { role: mongodb, tags: "mongodb" }
+  - { role: pm2_app }
