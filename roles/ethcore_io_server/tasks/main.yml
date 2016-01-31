@@ -24,14 +24,14 @@
   - update
   
 - name: build assets
-  shell: gulp production chdir={{install_dir}}
+  shell: gulp chdir={{install_dir}}
   tags:
     - update
   notify: reload nginx
 
 # # getting "Permission denied" when serving directly from app dir; not sure why
 - name: copy assets to {{server_dir}}
-  shell: cp -r {{install_dir}}/dist {{server_dir}}
+  shell: cp -r {{install_dir}}/dist/* {{server_dir}}
   tags:
     - update
   notify: reload nginx

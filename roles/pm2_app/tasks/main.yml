@@ -22,7 +22,7 @@
   ufw: rule=allow port="{{port}}" proto=tcp
   notify: reload ufw
 
-- name: start or restart pm2
-  shell: pm2 startOrRestart {{pm2_config_path}}
+- name: restart pm2
+  shell: pm2 kill && pm2 start {{pm2_config_path}}
 
 

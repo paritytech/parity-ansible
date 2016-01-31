@@ -1,13 +1,16 @@
 {
   "apps": [{
     "name": "{{app_name}}",
-    "script": "app.js",
+    "script": "bin/run",
     "log_date_format": "YYYY-MM-DD HH:mm Z",
     "watch": false,
     "cwd": "{{ app_name }}",
     "env": {
       "PORT": "{{ port }}",
-      "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}"
+      "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}",
+      "GITHUB_API_TOKEN": "{{ github_api_token }}",
+      "GITHUB_UPDATE_FREQUENCY_SECONDS": 3600,
+      "CURRENT_MILESTONE":"{{ current_milestone }}"
     }
   }]
 }

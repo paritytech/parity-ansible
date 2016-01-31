@@ -1,0 +1,7 @@
+- hosts:
+    - vanity-service
+  roles:
+    - { role: vanity_service,
+        tags: "vanity-service",
+        port: 80,
+        current_milestone: "0.9 Initial prerelease" }

@@ -6,7 +6,3 @@
   roles:
     - { role: ethcore_io_server, tags: "ethcore-io" }
 
-- hosts:
-    - vanity-service
-  roles:
-    - { role: vanity_service, tags: "vanity-service", port: 80 }
