@@ -21,9 +21,12 @@
   tags: update
   notify: restart pm2
 
-- name: open port for serving
+- name: open HTTP port 
   ufw: rule=allow port="{{port}}" proto=tcp
   notify: reload ufw
 
+- name: open HTTPS port 
+  ufw: rule=allow port="{{ssl_port}}" proto=tcp
+  notify: reload ufw
 
 

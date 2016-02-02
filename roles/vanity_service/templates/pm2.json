@@ -7,7 +7,7 @@
     "cwd": "{{ app_name }}",
     "env": {
       "PORT": "{{ port }}",
-      "SSL_PORT": "{{ssl_port}}"
+      "SSL_PORT": "{{ssl_port}}",
       "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}",
       "GITHUB_API_TOKEN": "{{ github_api_token }}",
       "GITHUB_UPDATE_FREQUENCY_SECONDS": 3600,

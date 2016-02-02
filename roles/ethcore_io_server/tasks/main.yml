@@ -28,8 +28,6 @@
   tags:
   - update
 
-
-
 - name: link sites-availible to sites-enabled
   file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} state=link
   tags:
