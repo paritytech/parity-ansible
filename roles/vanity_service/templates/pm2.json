@@ -7,10 +7,14 @@
     "cwd": "{{ app_name }}",
     "env": {
       "PORT": "{{ port }}",
+      "SSL_PORT": "{{ssl_port}}"
       "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}",
       "GITHUB_API_TOKEN": "{{ github_api_token }}",
       "GITHUB_UPDATE_FREQUENCY_SECONDS": 3600,
-      "CURRENT_MILESTONE":"{{ current_milestone }}"
+      "CURRENT_MILESTONE":"{{ current_milestone }}",
+      "COVERALLS_API_TOKEN": "{{coveralls_api_token}}",
+      "SSL_CERT": "{{ssl_install_path}}/{{ app_name }}.crt",
+      "SSL_KEY": "{{ssl_install_path}}/{{ app_name }}.key"
     }
   }]
 }
