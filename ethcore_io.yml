@@ -3,6 +3,14 @@
 
 - hosts:
     - ethcore-io-server
+  vars:
+    ssl_install_path: /etc/nginx
   roles:
-    - { role: ethcore_io_server, tags: "ethcore-io" }
+    - { role: ethcore_io_server,
+        app_name: website }
+    - { role: redirect,
+        app_name: install-redirect,
+        from_domain: install-parity-deps.ethcore.io,
+        to_url: "https://raw.githubusercontent.com/jesuscript/scripts/master/install-deps.sh",
+        tags: redirect }
 

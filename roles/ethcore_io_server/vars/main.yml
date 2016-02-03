@@ -1,8 +1,5 @@
-app_name: website
 repo: git@github.com:ethcore/website.git
 install_dir: "{{base_dir}}/{{app_name}}"
 server_dir: "/var/www/{{app_name}}"
 domain_name: ethcore.io
-ssl_install_path: /etc/nginx
-ssl_cert_path: "group_vars/ssl/STAR_ethcore_io.crt"
-ssl_key_path: "group_vars/ssl/STAR_ethcore_io.key"
+nginx_template: ./roles/ethcore_io_server/templates/nginx.conf

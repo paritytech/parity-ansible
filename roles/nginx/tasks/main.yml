@@ -13,6 +13,15 @@
   become: yes
   service: name=nginx state=started enabled=true
 
+- name: copy nginx site config
+  template: src={{nginx_template}} dest=/etc/nginx/sites-available/{{ app_name }}
+  tags: update
+
+- name: link sites-availible to sites-enabled
+  file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} state=link
+  tags:
+  - update
+
 - name: open HTTP port
   become: yes
   ufw: rule=allow port=80 proto=tcp
@@ -22,3 +31,8 @@
   become: yes
   ufw: rule=allow port=443 proto=tcp
   notify: reload ufw
+
+- name: restart nginx
+  become: yes
+  service: name=nginx state=restarted
+  

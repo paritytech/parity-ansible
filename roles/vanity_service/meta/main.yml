@@ -1,3 +1,4 @@
 dependencies:
   - { role: mongodb, tags: "mongodb" }
+  - { role: ssl }
   - { role: pm2_app }

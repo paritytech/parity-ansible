@@ -1,0 +1,3 @@
+ssl_cert_path: group_vars/ssl/STAR_ethcore_io.crt
+ssl_key_path: group_vars/ssl/STAR_ethcore_io.key
+ssl_install_path: "{{base_dir}}/.ssl"

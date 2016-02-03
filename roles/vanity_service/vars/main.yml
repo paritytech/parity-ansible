@@ -5,6 +5,4 @@ pm2_template: ./roles/vanity_service/templates/pm2.json
 mongo_db_name: vanity_service
 mongo_rw_user: jeremy
 mongo_rw_pass: "{{lookup('password', 'credentials/vanity_service/' + mongo_rw_user + '/mongodbpassword length=20 chars=ascii_letters,digits')}}"
-ssl_install_path: "{{base_dir}}/.ssl"
-ssl_cert_path: "group_vars/ssl/STAR_ethcore_io.crt"
-ssl_key_path: "group_vars/ssl/STAR_ethcore_io.key"
+
