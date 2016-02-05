@@ -18,4 +18,3 @@
         from_domain: install-parity.ethcore.io,
         to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-parity.sh?token=ABG4GVtXjL4abK-mRlWkZgRLDQwygnarks5WvMADwA%3D%3D",
         tags: redirect }
-
