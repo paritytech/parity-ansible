@@ -15,6 +15,6 @@
         tags: redirect }
     - { role: redirect,
         app_name: install-parity-redirect,
-        from_domain: install-parity.ethcore.io,
+        from_domain: get-parity.ethcore.io,
         to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-parity.sh?token=ABG4GVtXjL4abK-mRlWkZgRLDQwygnarks5WvMADwA%3D%3D",
         tags: redirect }
