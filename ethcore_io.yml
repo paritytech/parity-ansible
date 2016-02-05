@@ -11,6 +11,11 @@
     - { role: redirect,
         app_name: install-redirect,
         from_domain: get-deps.ethcore.io,
-        to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-deps.sh?token=AAIcOLr66_DbEFcKdpIr5EaaFxDesr73ks5WvJB9wA%3D%3D",
+        to_url: "https://raw.githubusercontent.com/ethcore/parity/install-parity/install-deps.sh?token=ABG4GSrcbr5ls3LMAJ0Zpu6RrtUy50MZks5WvROhwA%3D%3D",
+        tags: redirect }
+    - { role: redirect,
+        app_name: install-parity-redirect,
+        from_domain: install-parity.ethcore.io,
+        to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-parity.sh?token=ABG4GVtXjL4abK-mRlWkZgRLDQwygnarks5WvMADwA%3D%3D",
         tags: redirect }
 
