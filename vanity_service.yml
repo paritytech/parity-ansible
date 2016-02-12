@@ -4,4 +4,4 @@
     - { role: vanity_service,
         tags: "vanity-service",
         port: 80,
-        current_milestone: "0.9 Initial prerelease" }
+        current_milestone: "1.0 Parity" }
