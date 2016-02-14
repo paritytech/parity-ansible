@@ -1,0 +1,22 @@
+{
+  "apps": [{
+    "name": "{{ app_name }}",
+    "script": "src/clabot-sample.coffee",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "cwd": "{{ app_name }}",
+    "env": {
+      "PORT": "{{ port }}",
+      "GITHUB_BOT_USER": "{{ github_bot_user }}",
+      "GITHUB_REPO_OWNER": "{{ github_repo_owner }}",
+      "GITHUB_REPO": "{{ github_repo }}",
+      "DOMAIN": "{{ domain }}",
+      "HUB_SECRET": "{{ cla_bot_hub_secret }}",
+      "GITHUB_TOKEN": "{{ cla_bot_github_token }}",
+      "MONGO_URL": "{{ cla_bot_mongo_url }}",
+      "CLIENT_ID": "{{ cla_bot_client_id }}",
+      "CLIENT_SECRET": "{{ cla_bot_client_secret }}",
+      "SESSION_SECRET": "{{ cla_bot_session_secret }}"
+    }
+  }]
+}

@@ -1,0 +1,11 @@
+- hosts:
+    - cla-bot
+  roles:
+    - { role: cla_bot,
+        tags: "cla-bot",
+        port: 80,
+        github_bot_user: "ethcore-cla-bot",
+        github_repo_owner: "ethcore-cla-bot",
+        github_repo: "test",
+        domain: "http://162.243.64.133"
+      }

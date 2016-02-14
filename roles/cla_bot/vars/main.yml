@@ -1,0 +1,4 @@
+app_name: cla-bot
+repo: git@github.com:ethcore/ethcore-cla-bot.git
+deploy_key: ./group_vars/ssh_keys/cla_bot_deploy
+pm2_template: ./roles/cla_bot/templates/pm2.json
