@@ -6,7 +6,7 @@
     "watch": false,
     "cwd": "{{ app_name }}",
     "env": {
-      "PORT": "{{ port }}",
+      "PORT": "{{ ssl_port }}",
       "GITHUB_BOT_USER": "{{ github_bot_user }}",
       "GITHUB_REPO_OWNER": "{{ github_repo_owner }}",
       "GITHUB_REPO": "{{ github_repo }}",
@@ -16,7 +16,9 @@
       "MONGO_URL": "{{ cla_bot_mongo_url }}",
       "CLIENT_ID": "{{ cla_bot_client_id }}",
       "CLIENT_SECRET": "{{ cla_bot_client_secret }}",
-      "SESSION_SECRET": "{{ cla_bot_session_secret }}"
+      "SESSION_SECRET": "{{ cla_bot_session_secret }}",
+      "SSL_CERT": "{{ssl_install_path}}/ssl.crt",
+      "SSL_KEY": "{{ssl_install_path}}/ssl.key"
     }
   }]
 }
