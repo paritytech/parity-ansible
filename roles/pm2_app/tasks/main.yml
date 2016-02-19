@@ -7,6 +7,9 @@
   tags: update
   notify: restart pm2
 
+- name: install coffee-script
+  npm: name=coffee-script global=yes
+
 - name: install pm2
   become: yes
   npm: name=pm2 global=yes
