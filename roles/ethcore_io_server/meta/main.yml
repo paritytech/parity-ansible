@@ -1,4 +1,6 @@
 dependencies:
-  - { role: nginx, tags: "nginx" }
   - { role: node, tags: "node" }
   - { role: ssl }
+  - { role: nginx, tags: "nginx" }
+
+  

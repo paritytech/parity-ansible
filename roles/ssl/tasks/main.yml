@@ -5,11 +5,11 @@
   tags: update
 
 - name: copy ssl certificate to server
-  copy: src={{ ssl_cert_path }} dest={{ ssl_install_path }}/ssl.crt mode=600
+  copy: content={{ ssl_cert }} dest={{ ssl_install_path }}/ssl.crt mode=600
   tags: update
 
 - name: copy ssl key to server
-  copy: src={{ ssl_key_path }} dest={{ ssl_install_path }}/ssl.key mode=600
+  copy: content={{ ssl_key }} dest={{ ssl_install_path }}/ssl.key mode=600
   tags: update
 
 
