@@ -18,3 +18,19 @@
         from_domain: get-parity.ethcore.io,
         to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-parity.sh",
         tags: redirect }
+    - { role: redirect,
+        app_name: parity-redirect,
+        from_domain: "parity.io www.parity.io",
+        to_url: "https://ethcore.io",
+        ssl_cert_path: group_vars/ssl/parity-full-chain.crt,
+        ssl_key_path: group_vars/ssl/parity.key,
+        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        tags: redirect }
+    - { role: redirect,
+        app_name: get-parity-redirect,
+        from_domain: "get.parity.io",
+        to_url: "https://get-parity.ethcore.io",
+        ssl_cert_path: group_vars/ssl/parity-full-chain.crt,
+        ssl_key_path: group_vars/ssl/parity.key,
+        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        tags: redirect }

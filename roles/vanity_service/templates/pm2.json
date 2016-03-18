@@ -12,6 +12,7 @@
       "GITHUB_API_TOKEN": "{{ github_api_token }}",
       "GITHUB_UPDATE_FREQUENCY_SECONDS": 3600,
       "CURRENT_MILESTONE":"{{ current_milestone }}",
+      "CURRENT_RELEASE_NAME": "{{ current_release_name }}",
       "COVERALLS_API_TOKEN": "{{coveralls_api_token}}",
       "SSL_CERT": "{{ssl_install_path}}/{{ app_name }}.crt",
       "SSL_KEY": "{{ssl_install_path}}/{{ app_name }}.key"
