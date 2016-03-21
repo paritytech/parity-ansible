@@ -6,10 +6,6 @@
   git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}"
   tags: update
 
-- name: npm install gulp
-  become: yes
-  npm: name=gulp global=yes
-
 - name: npm install locals
   npm:  production=yes path={{install_dir}}
   tags: update

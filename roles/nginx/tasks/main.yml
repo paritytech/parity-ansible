@@ -22,14 +22,15 @@
   tags:
   - update
 
-- name: open HTTP port
+- name: "open port {{nginx_port}}"
   become: yes
-  ufw: rule=allow port=80 proto=tcp
+  ufw: rule=allow port="{{nginx_port}}" proto=tcp
   notify: reload ufw
 
-- name: open HTTPS port
+- name: open port "{{nginx_ssl_port}}"
   become: yes
-  ufw: rule=allow port=443 proto=tcp
+  ufw: rule=allow port="{{nginx_ssl_port}}" proto=tcp
+  when: nginx_ssl_port is defined
   notify: reload ufw
 
 - name: restart nginx

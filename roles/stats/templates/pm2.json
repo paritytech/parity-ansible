@@ -1,0 +1,13 @@
+{
+  "apps": [{
+    "name": "{{app_name}}",
+    "script": "bin/www",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "cwd": "{{ app_name }}",
+    "env": {
+      "PORT": "{{ pm2_port }}",
+      "WS_SECRET": "{{ secret }}"
+    }
+  }]
+}

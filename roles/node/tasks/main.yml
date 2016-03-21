@@ -4,3 +4,13 @@
 - name: install nodejs
   become: yes
   apt: state=present update_cache=yes pkg=nodejs
+
+- name: install common globals
+  npm: name={{ item }} global=yes
+  become: yes
+  with_items:
+    - coffee-script
+    - grunt-cli
+    - gulp
+
+  

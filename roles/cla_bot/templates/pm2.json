@@ -6,7 +6,7 @@
     "watch": false,
     "cwd": "{{ app_name }}",
     "env": {
-      "PORT": "{{ ssl_port }}",
+      "PORT": "{{ pm2_ssl_port }}",
       "GITHUB_BOT_USER": "{{ github_bot_user }}",
       "GITHUB_REPO_OWNER": "{{ github_repo_owner }}",
       "GITHUB_REPO": "{{ github_repo }}",

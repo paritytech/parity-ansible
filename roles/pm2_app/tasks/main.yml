@@ -1,14 +1,12 @@
 - name: copy deployment key to server
   copy: src="{{ deploy_key }}" dest="{{ base_dir }}/.ssh/{{ app_name }}" mode=600
+  tags: test
   when: deploy_key is defined
 
 - name: "clone git repository ({{'ssh' if deploy_key is defined else 'https'}}): {{ repo }}"
   git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}"
-  tags: update
+  tags: update, 
   notify: restart pm2
-
-- name: install coffee-script
-  npm: name=coffee-script global=yes
 
 - name: install pm2
   become: yes
@@ -24,12 +22,13 @@
   tags: update
   notify: restart pm2
 
-- name: open HTTP port 
-  ufw: rule=allow port="{{port}}" proto=tcp
+- name: "open port {{pm2_port}}"
+  ufw: rule=allow port="{{pm2_port}}" proto=tcp
   notify: reload ufw
 
-- name: open HTTPS port 
-  ufw: rule=allow port="{{ssl_port}}" proto=tcp
+- name: "open ssl port {{pm2_ssl_port}}"
+  ufw: rule=allow port="{{pm2_ssl_port}}" proto=tcp
+  when: ssl_port is defined
   notify: reload ufw
 
 

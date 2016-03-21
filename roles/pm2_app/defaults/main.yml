@@ -1,3 +1,4 @@
-deploy_key: no
-port: 80
-ssl_port: 443
+install_dir: "{{base_dir}}/{{app_name}}"
+pm2_config_path: "{{install_dir}}.json"
+pm2_port: 80
+

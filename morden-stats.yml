@@ -1,0 +1,8 @@
+- include: install_python.yml
+  tags: "dependency"
+
+- hosts:
+    - morden-stats
+  roles:
+    - { role: stats,
+        secret: "{{morden_stats_secret}}"}
