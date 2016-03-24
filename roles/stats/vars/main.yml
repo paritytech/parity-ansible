@@ -1,3 +1,1 @@
-app_name: stats
-repo: https://github.com/jesuscript/eth-netstats.git
-pm2_template: ./roles/stats/templates/pm2.json
+node_port: 3000

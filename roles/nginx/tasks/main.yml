@@ -3,19 +3,19 @@
   become: yes
   apt: name=nginx state=present
 
-- name: Copy nginx configuration for server
-  become: yes
-  template: src=nginx.conf dest=/etc/nginx/nginx.conf
-  notify:
-  - restart nginx
-  
 - name: start nginx
   become: yes
   service: name=nginx state=started enabled=true
 
 - name: copy nginx site config
-  template: src={{nginx_template}} dest=/etc/nginx/sites-available/{{ app_name }}
+  template: src={{app_template}} dest=/etc/nginx/sites-available/{{ app_name }}
   tags: update
+
+- name: Copy nginx configuration for server
+  become: yes
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+  - reload nginx
 
 - name: link sites-availible to sites-enabled
   file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} state=link

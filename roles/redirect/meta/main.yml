@@ -1,5 +1,7 @@
 dependencies:
   - { role: ssl }
-  - { role: nginx, tags: "nginx" }
+  - { role: nginx,
+      app_template: "{{nginx_template}}",
+      tags: "nginx" }
 
 

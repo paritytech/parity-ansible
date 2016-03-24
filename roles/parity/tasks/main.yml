@@ -1,0 +1,4 @@
+#TODO: parity args as a var
+
+- name: start parity docker container
+  shell: docker rm --force parity || true && docker pull ethcore/parity && docker run --name parity -p 30303:30303 -p 30303:30303/udp -p 8545:8545 -d ethcore/parity ~/parity/target/release/parity -j --chain morden

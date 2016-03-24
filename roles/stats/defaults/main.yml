@@ -1,4 +1,4 @@
-pm2_port: 3000
-# nginx_port: 80
-# nginx_ssl_port: 443
+app_name: stats
+repo: https://github.com/jesuscript/eth-netstats.git
+
 

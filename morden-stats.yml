@@ -5,4 +5,7 @@
     - morden-stats
   roles:
     - { role: stats,
-        secret: "{{morden_stats_secret}}"}
+        secret: "{{morden_stats_secret}}",
+        domain_name: "morden.io",
+        ssl_cert: "{{morden_ssl_cert}}",
+        ssl_key: "{{morden_ssl_key}}" }
