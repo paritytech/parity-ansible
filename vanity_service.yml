@@ -5,4 +5,5 @@
         tags: "vanity-service",
         port: 80,
         current_milestone: "1.0 Parity",
-        current_release_name: "v1.0.0" }
+        ssl_cert: "{{ethcore_ssl_cert}}",
+        ssl_key: "{{ethcore_ssl_key}}" }
