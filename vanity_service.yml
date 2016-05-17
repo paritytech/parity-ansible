@@ -4,6 +4,7 @@
     - { role: vanity_service,
         tags: "vanity-service",
         port: 80,
-        current_milestone: "1.0 Parity",
+        current_milestone: "1.2 Civility",
         ssl_cert: "{{ethcore_ssl_cert}}",
-        ssl_key: "{{ethcore_ssl_key}}" }
+        ssl_key: "{{ethcore_ssl_key}}",
+        latest_parity_deb_url: "https://drive.google.com/uc?id=0B1eH_0iFNbmvdmxyNDVmVDdFajA&authuser=0&export=download" }
