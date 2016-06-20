@@ -40,3 +40,11 @@
         ssl_key: "{{parity_ssl_key}}",
         ssl_install_path: "{{base_dir}}/.ssl-parity",
         tags: redirect }
+    - { role: redirect,
+        app_name: parity-chrome-extension,
+        from_domain: "chrome.parity.io",
+        to_url: "https://chrome.google.com/webstore/detail/parity-signer-ui/fgodinogimdopkigkcoelpfkbnpngalc?authuser=1",
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}",
+        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        tags: redirect }

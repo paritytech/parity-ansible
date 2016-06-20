@@ -1,5 +1,5 @@
 - name: add nodejs PPA
-  shell: curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+  shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 - name: install nodejs
   become: yes
