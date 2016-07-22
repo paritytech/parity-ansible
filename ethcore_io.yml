@@ -13,14 +13,14 @@
     - { role: redirect,
         app_name: install-redirect,
         from_domain: get-deps.ethcore.io,
-        to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-deps.sh",
+        to_url: "https://raw.githubusercontent.com/ethcore/scripts/master/install-deps.sh",
         tags: redirect,
         ssl_cert: "{{ethcore_ssl_cert}}",
         ssl_key: "{{ethcore_ssl_key}}" }
     - { role: redirect,
         app_name: install-parity-redirect,
         from_domain: get-parity.ethcore.io,
-        to_url: "https://raw.githubusercontent.com/ethcore/parity/master/install-parity.sh",
+        to_url: "https://raw.githubusercontent.com/ethcore/scripts/master/install-parity.sh",
         tags: redirect,
         ssl_cert: "{{ethcore_ssl_cert}}",
         ssl_key: "{{ethcore_ssl_key}}" }
