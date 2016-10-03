@@ -15,7 +15,11 @@
       "COVERALLS_API_TOKEN": "{{coveralls_api_token}}",
       "SSL_CERT": "{{ssl_install_path}}/{{ app_name }}.crt",
       "SSL_KEY": "{{ssl_install_path}}/{{ app_name }}.key",
-      "LATEST_PARITY_DEB_URL": "{{ latest_parity_deb_url }}"
+      "LATEST_PARITY_DEB_URL": "{{ latest_parity_deb_url }}",
+      "AWS_CLOUD_FRONT_URL": "http://d1h4xl4cr1h0mo.cloudfront.net/",
+      "AWS_ACCESS_KEY_ID": "{{ aws_access_key_id }}",
+      "AWS_SECRET_ACCESS_KEY": "{{ aws_secret_access_key }}",
+      "GITLAB_WEBHOOK_SECRET": "{{ gitlab_webhook_secret }}"
     }
   }]
 }

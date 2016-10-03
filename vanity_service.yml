@@ -4,6 +4,6 @@
     - { role: vanity_service,
         tags: "vanity-service",
         port: 80,
-        current_milestone: "1.3 Acuity",
+        current_milestone: "1.4 Civility",
         ssl_cert: "{{ethcore_ssl_cert}}",
         ssl_key: "{{ethcore_ssl_key}}" }

@@ -7,4 +7,6 @@
         github_repo_owner: "ethcore",
         github_repo: "parity",
         domain: "https://cla.ethcore.io",
+        ssl_cert: "{{ethcore_ssl_cert}}",
+        ssl_key: "{{ethcore_ssl_key}}"
       }
