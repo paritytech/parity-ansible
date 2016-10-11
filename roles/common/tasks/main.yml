@@ -10,11 +10,8 @@
     - python-dev
     - python-pip
     - curl
+    - ufw
 
-- name: install docker
-  sudo: yes
-  shell: curl -sSL https://get.docker.com/ | sh
-  
 - name: open the ssh port
   ufw: rule=allow port=22
   notify: reload ufw

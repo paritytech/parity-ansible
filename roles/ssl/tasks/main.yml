@@ -1,4 +1,8 @@
 #TODO: remove update tags
+- name: open the ssl port
+  ufw: rule=allow port=443
+  notify: reload ufw
+  tags: update
 
 - name: create the {{ ssl_install_path }} directory
   file: path={{ ssl_install_path }} state=directory

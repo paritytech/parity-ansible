@@ -1,0 +1,5 @@
+repo: git@github.com:ethcore/disparity-website.git
+install_dir: "{{base_dir}}/{{app_name}}"
+server_dir: "/var/www/{{app_name}}"
+nginx_template: ./roles/disparity_website/templates/nginx.conf
+domain_name: disparity.io

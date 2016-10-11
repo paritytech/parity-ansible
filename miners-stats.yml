@@ -1,0 +1,8 @@
+- hosts:
+    - miners-stats
+  roles:
+    - { role: stats,
+        secret: "{{miners_stats_secret}}",
+        domain_name: "miners.parity.io",
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}" }

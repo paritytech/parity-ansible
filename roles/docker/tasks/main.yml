@@ -1,0 +1,10 @@
+- name: install prereqs
+  apt: state=present pkg={{ item }}
+  with_items:
+    - linux-image-virtual
+    - linux-image-extra-virtual
+
+- name: install docker
+  sudo: yes
+  shell: curl -sSL https://get.docker.com/ | sh
+  

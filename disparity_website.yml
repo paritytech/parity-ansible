@@ -1,0 +1,12 @@
+- include: install_python.yml
+  tags: "dependency"
+
+- hosts:
+    - disparity_website
+  vars:
+    ssl_install_path: /etc/nginx
+  roles:
+    - { role: disparity_website,
+        app_name: disparity_website,
+        ssl_cert: "{{ disparity_ssl_cert }}",
+        ssl_key: "{{ disparity_ssl_key }}"}
