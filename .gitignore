@@ -1,3 +1,4 @@
 .DS_Store
 cloud_shepard.json
 credentials/*
+*.retry

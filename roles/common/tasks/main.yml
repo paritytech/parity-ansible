@@ -12,9 +12,12 @@
     - curl
     - ufw
 
-- name: open the ssh port
-  ufw: rule=allow port=22
-  notify: reload ufw
-
 - name: firewall default deny
-  ufw: state=enabled policy=deny
+  ufw: state=disabled policy=deny
+  when: enable_ufw
+
+- name: open the ssh port
+  ufw: rule=allow port=22 proto=tcp state=enabled
+  when: enable_ufw
+
+

@@ -1,0 +1,11 @@
+- hosts:
+    - parity-stats
+  roles:
+    - { role: stats,
+        secret: "{{parity_stats_secret}}",
+        domain_name: "stats.parity.io",
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}",
+        repo: "https://github.com/jesuscript/eth-netstats.git",
+        version: "default-colors"
+        }

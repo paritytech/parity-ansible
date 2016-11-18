@@ -11,6 +11,7 @@
       "MONGO_URL": "mongodb://{{ mongo_rw_user }}:{{ mongo_rw_pass }}@0.0.0.0:27017/{{ mongo_db_name }}",
       "GITHUB_API_TOKEN": "{{ github_api_token }}",
       "GITHUB_UPDATE_FREQUENCY_SECONDS": 1800,
+      "PARITY_BUILDS_UPDATE_FREQUENCY_SECONDS": 900,
       "CURRENT_MILESTONE":"{{ current_milestone }}",
       "COVERALLS_API_TOKEN": "{{coveralls_api_token}}",
       "SSL_CERT": "{{ssl_install_path}}/ssl.crt",
@@ -19,6 +20,7 @@
       "AWS_CLOUD_FRONT_URL": "http://d1h4xl4cr1h0mo.cloudfront.net/",
       "AWS_ACCESS_KEY_ID": "{{ aws_access_key_id }}",
       "AWS_SECRET_ACCESS_KEY": "{{ aws_secret_access_key }}",
+      "AWS_S3_PARITY_BUILDS_BUCKET": "{{ aws_s3_parity_builds_bucket }}",
       "GITLAB_WEBHOOK_SECRET": "{{ gitlab_webhook_secret }}"
     }
   }]

@@ -4,8 +4,8 @@
   when: deploy_key is defined
 
 - name: "clone git repository ({{'ssh' if deploy_key is defined else 'https'}}): {{ repo }}"
-  git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}"
-  tags: update, 
+  git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}" version={{version if version is defined else 'master'}}
+  tags: update
   notify: restart pm2
 
 - name: install pm2
@@ -25,10 +25,12 @@
 - name: "open port {{pm2_port}}"
   ufw: rule="{{'deny' if local_only else 'allow' }}" port="{{pm2_port}}" proto=tcp
   notify: reload ufw
+  when: enable_ufw
 
 - name: "open ssl port {{pm2_ssl_port}}"
   ufw: rule="{{'deny' if local_only else 'allow' }}" port="{{pm2_ssl_port}}" proto=tcp
   when: pm2_ssl_port is defined
   notify: reload ufw
+  when: enable_ufw
 
 

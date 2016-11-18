@@ -1,0 +1,28 @@
+- name: download new parity binary
+  get_url:
+    url: "{{ parity_deb_url }}"
+    dest: "{{base_dir}}/parity.deb"
+  tags: update
+
+- name: install parity
+  shell: dpkg -i "{{base_dir}}/parity.deb"
+  become: yes
+  tags: update
+
+- name: copy parity run-script
+  template: src=run-parity.sh dest="{{base_dir}}/run-parity.sh"
+  notify: restart pm2
+  tags: update
+
+- name: open parity ports
+  ufw: rule=allow port=30303 proto={{ item }}
+  notify: reload ufw
+  with_items:
+    - tcp
+    - udp
+  when: enable_ufw
+  
+  
+
+
+    

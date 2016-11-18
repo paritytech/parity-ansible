@@ -1,7 +1,7 @@
 dependencies:
   - { role: pm2_app,
       pm2_port: "{{ node_port }}",
-      pm2_template: ./roles/stats/templates/pm2.json,
+      pm2_template: "{{ stats_pm2_template }}",
       tags: pm2,
       local_only: yes }
   - role: ssl

@@ -1,0 +1,5 @@
+dependencies:
+  - { role: pm2_app,
+      app_name: stats,
+      repo: "https://github.com/cubedro/eth-net-intelligence-api.git",
+      pm2_template: ./roles/warp-bootnodes/templates/pm2.json }

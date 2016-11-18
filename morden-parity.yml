@@ -5,4 +5,4 @@
     - morden
   roles:
     - { role: parity,
-        chain: morden }
+        chain: morden}

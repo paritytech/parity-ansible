@@ -7,6 +7,10 @@
   become: yes
   service: name=nginx state=started enabled=true
 
+
+- name: generate dhparams
+  shell: openssl dhparam -out dhparams.pem 2048 chdir={{base_dir}}
+
 - name: copy nginx site config
   template: src={{app_template}} dest=/etc/nginx/sites-available/{{ app_name }}
   tags: update
