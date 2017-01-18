@@ -1,5 +1,4 @@
 app_name: vanity-service
 repo: git@github.com:ethcore/vanity-service.git
-deploy_key: ./group_vars/ssh_keys/vanity_service_deploy
 pm2_template: ./roles/vanity_service/templates/pm2.json
 mongo_db_name: vanity_service

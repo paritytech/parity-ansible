@@ -1,0 +1,9 @@
+- name: copy git ssh key to server
+  copy: content="{{ git_ssh_key }}" dest="{{ base_dir }}/.ssh/id_rsa" mode=600
+  tags: update
+
+- name: copy git ssh public key to server
+  copy: content="{{ git_ssh_key_pub }}" dest="{{ base_dir }}/.ssh/id_rsa.pub" mode=600
+  tags: update
+
+  

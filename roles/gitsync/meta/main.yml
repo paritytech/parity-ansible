@@ -1,0 +1,4 @@
+dependencies:
+  - { role: ssl }
+  - { role: pm2_app,
+      pm2_template: ./roles/gitsync/templates/pm2.json }

@@ -1,0 +1,19 @@
+{
+  "apps": [{
+    "name": "gitsync",
+    "script": "lib",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "cwd": "{{ app_name }}",
+    "env": {
+      "GITHUB_SECRET": "{{ github_secret }}",
+      "GIT_WORKDIR_PATH": "git_workdir",
+      "GIT_SRC": "{{ git_src_address }}",
+      "GIT_TRG": "{{ git_trg_address }}",
+      "PORT": 80,
+      "SSL_PORT": 443,
+      "SSL_CERT": "{{ssl_install_path}}/ssl.crt",
+      "SSL_KEY": "{{ssl_install_path}}/ssl.key"
+    }
+  }]
+}

@@ -1,6 +1,6 @@
+
 - name: copy deployment key to server
-  copy: src="{{ deploy_key }}" dest="{{ base_dir }}/.ssh/{{ app_name }}" mode=600
-  tags: test
+  copy: content="{{ deploy_key }}" dest="{{ base_dir }}/.ssh/{{ app_name }}" mode=600
   when: deploy_key is defined
 
 - name: "clone git repository ({{'ssh' if deploy_key is defined else 'https'}}): {{ repo }}"
