@@ -9,6 +9,7 @@
     "max_restarts"      : 10,
     "exec_interpreter"  : "node",
     "exec_mode"         : "fork_mode",
+    
     "env":
     {
       "NODE_ENV"        : "production",
@@ -17,7 +18,7 @@
       "LISTENING_PORT"  : "30303",
       "INSTANCE_NAME"   : "Parity Warp Bootnode {{ node_location_name }}",
       "CONTACT_DETAILS" : "",
-      "WS_SERVER"       : "wss://stats.parity.io",
+      "WS_SERVER"       : "{{ stats_ws_server }}",
       "WS_SECRET"       : "{{ ethstats_secret }}",
       "VERBOSITY"       : 2
     }

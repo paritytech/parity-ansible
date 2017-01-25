@@ -2,6 +2,7 @@
   get_url:
     url: "{{ parity_deb_url }}"
     dest: "{{base_dir}}/parity.deb"
+    force: yes
   tags: update
 
 - name: install parity
@@ -12,7 +13,9 @@
 - name: copy parity run-script
   template: src=run-parity.sh dest="{{base_dir}}/run-parity.sh"
   notify: restart pm2
-  tags: update
+  tags:
+    - update
+    - restart
 
 - name: open parity ports
   ufw: rule=allow port=30303 proto={{ item }}
@@ -22,7 +25,24 @@
     - udp
   when: enable_ufw
   
-  
+- name: get enodes
+  uri:
+    url: http://localhost:8545
+    method: POST
+    body: {
+      jsonrpc: "2.0",
+      method: "parity_enode",
+      id: 1
+    }
+    body_format: json
+  register: enode
+  tags:
+    - update
+    - get-enode
 
-
+- debug:
+    var: enode.json.result
+  tags:
+    - update
+    - get-enode
     

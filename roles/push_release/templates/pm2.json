@@ -1,0 +1,28 @@
+[
+  {
+    "name": "push-release",
+    "script": "server.js",
+    "cwd" : "{{ install_dir }}",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "merge_logs": false,
+    "watch": false,
+    "max_restarts": 10,
+    "exec_interpreter": "node",
+    "exec_mode": "fork_mode",
+    "env": {
+      "OPERATIONS_CONTRACT_NAME": "{{operations_contract_name}}",
+      "ETH_ACCOUNT_ADDRESS": "{{operations_server_key.address}}",
+      "ASSETS_BASE_URL": "{{assets_base_url}}",
+      "TOKEN_HASH": "{{secret_token_hash}}"
+    }
+  },
+  {
+    "name"              : "parity",
+    "script"            : "run-parity.sh",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "bash"
+  }
+]

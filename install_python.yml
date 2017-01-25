@@ -1,10 +1,8 @@
-- hosts: all
+- hosts: "{{hosts}}"
   gather_facts: no
   tags: dependency
   tasks:
     - name: wait for port 22 to be ready
-      become: no
       local_action: wait_for port=22 host="{{ inventory_hostname }}"  
     - name: install python
-      become: yes
-      raw: apt-get install -y python
+      raw: if [ ! -f /usr/bin/python ]; then apt-get install -y python ; fi 

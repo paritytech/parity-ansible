@@ -1,6 +1,8 @@
 - name: restart pm2
   shell: pm2 kill && pm2 start {{pm2_config_path}}
-  tags: update
+  tags:
+    - update
+    - restart
 
 
 

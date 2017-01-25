@@ -1,0 +1,5 @@
+dependencies:
+  - { role: pm2_app,
+      app_name: push_release,
+      repo: "https://github.com/jesuscript/push-release.git",
+      pm2_template: ./roles/push_release/templates/pm2.json }
