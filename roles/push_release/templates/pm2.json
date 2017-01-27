@@ -13,7 +13,8 @@
       "OPERATIONS_CONTRACT_NAME": "{{operations_contract_name}}",
       "ETH_ACCOUNT_ADDRESS": "{{operations_server_key.address}}",
       "ASSETS_BASE_URL": "{{assets_base_url}}",
-      "TOKEN_HASH": "{{secret_token_hash}}"
+      "TOKEN_HASH": "{{secret_token_hash}}",
+      "HTTP_PORT": "{{http_port}}"
     }
   },
   {
