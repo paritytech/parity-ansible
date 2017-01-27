@@ -48,7 +48,7 @@ Finally, there is a number of scripts in the `scripts/` directory, you can execu
 
 ## For push-release deployments:
 
-Edit `group_vars/inventory/push_release` and add the server IP address under [homestead_operations] (make sure to encrypt the file before committing).
+Edit `group_vars/inventory/push_release` and add the server IP address under `[homestead_operations]` (make sure to encrypt the file before committing).
 
 Create a new file in the root called `homestead_auto_updater.yml` and add a new playbook (see below). You can look at the contents of `ropsten_auto_updater` for reference. Then either encrypt the file or (probably more preferably) gitignore it.
 ```
