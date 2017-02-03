@@ -1,0 +1,10 @@
+- include: install_python.yml
+  vars:
+    hosts: lookup-service
+  tags:
+    - dependency
+    - python
+
+- hosts: lookup-service
+  roles:
+    - lookup_service

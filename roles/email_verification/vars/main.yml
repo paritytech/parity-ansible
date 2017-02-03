@@ -1,0 +1,15 @@
+ssl_cert: "{{parity_ssl_cert}}"
+ssl_key: "{{parity_ssl_key}}"
+service_name: "email-verification"
+testnet_domain_names:
+  - email-verification.parity.io
+  - email-verification-test.parity.io
+mainnet_domain_names:
+  - email-verification.parity.io
+  - email-verification-main.parity.io
+testnet_nginx_ssl_port: 28443
+mainnet_nginx_ssl_port: 18443
+testnet_app_port: 3001
+mainnet_app_port: 3000
+disable_http: yes
+service_repo: https://github.com/ethcore/email-verification.git

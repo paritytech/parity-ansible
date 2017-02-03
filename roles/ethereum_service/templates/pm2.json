@@ -1,0 +1,20 @@
+[
+  {
+    "name"              : "parity-mainnet",
+    "script"            : "run-parity-mainnet.sh",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "bash"
+  },
+  {
+    "name"              : "parity-testnet",
+    "script"            : "run-parity-testnet.sh",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "bash"
+  }
+]

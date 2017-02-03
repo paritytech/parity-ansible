@@ -1,0 +1,15 @@
+ssl_cert: "{{parity_ssl_cert}}"
+ssl_key: "{{parity_ssl_key}}"
+service_name: "sms-verification"
+testnet_domain_names:
+  - sms-verification.parity.io
+  - sms-verification-test.parity.io
+mainnet_domain_names:
+  - sms-verification.parity.io
+  - sms-verification-main.parity.io
+testnet_nginx_ssl_port: 8443
+mainnet_nginx_ssl_port: 443
+testnet_app_port: 3001
+mainnet_app_port: 3000
+disable_http: yes
+service_repo: https://github.com/ethcore/sms-verification.git

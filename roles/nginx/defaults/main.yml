@@ -1,3 +1,5 @@
 nginx_port: 80
+nginx_ssl_port: 443
 app_port: 3000
 app_template:
+disable_http: no

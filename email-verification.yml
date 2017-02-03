@@ -1,0 +1,10 @@
+- include: install_python.yml
+  vars:
+    hosts: email-verification
+  tags:
+    - dependency
+    - python
+
+- hosts: email-verification
+  roles:
+    - email_verification

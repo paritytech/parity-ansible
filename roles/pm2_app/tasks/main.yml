@@ -1,27 +1,3 @@
-
-- name: copy deployment key to server
-  copy: content="{{ deploy_key }}" dest="{{ base_dir }}/.ssh/{{ app_name }}" mode=600
-  when: deploy_key is defined
-
-- name: "clone git repository ({{'ssh' if deploy_key is defined else 'https'}}): {{ repo }}"
-  git: repo={{ repo }} dest={{ install_dir }} force=yes accept_hostkey=yes key_file="{{ base_dir }}/.ssh/{{ app_name }}" version={{version if version is defined else 'master'}}
-  tags: update
-  notify: restart pm2
-
-- name: install pm2
-  become: yes
-  npm: name=pm2 global=yes
-
-- name: npm install locals
-  npm:  production=yes path={{install_dir}}
-  tags: update
-  notify: restart pm2
-
-- name: copy the pm2 config
-  template: src={{pm2_template}} dest={{pm2_config_path}}
-  tags: update
-  notify: restart pm2
-
 - name: "open port {{pm2_port}}"
   ufw: rule="{{'deny' if local_only else 'allow' }}" port="{{pm2_port}}" proto=tcp
   notify: reload ufw
@@ -33,4 +9,8 @@
   notify: reload ufw
   when: enable_ufw
 
-
+- name: restart pm2
+  shell: pm2 kill && pm2 start {{pm2_config_path}}
+  tags:
+    - update
+    - restart

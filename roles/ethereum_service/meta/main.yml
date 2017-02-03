@@ -1,0 +1,28 @@
+dependencies:
+  - { role: parity_runner,
+      pm2_template: ./roles/ethereum_service/templates/pm2.json,
+      tags: parity_runner,
+      parity_run_scripts: 
+        [ { name: run-parity-mainnet.sh,
+            template: ./roles/ethereum_service/templates/run-parity-mainnet.sh },
+         { name: run-parity-testnet.sh,
+            template: ./roles/ethereum_service/templates/run-parity-testnet.sh } ] }
+  - { role: ssl, tags: ssl }    
+  - { role: node_app,
+      app_name: "{{ service_name }}",
+      repo: "{{ service_repo }}" }
+  - { role: nginx,
+      app_template: proxy_pass.conf,
+      domain_names: "{{testnet_domain_names}}",
+      app_name: "testnet_{{ service_name }}",
+      tags: testnet_nginx,
+      app_port: "{{testnet_app_port}}",
+      nginx_ssl_port: "{{testnet_nginx_ssl_port}}" }  
+  - { role: nginx,
+      app_template: proxy_pass.conf,
+      domain_names: "{{mainnet_domain_names}}",
+      app_name: "mainnet_{{ service_name }}",
+      tags: mainnet_nginx,
+      app_port: "{{mainnet_app_port}}",
+      nginx_ssl_port: "{{mainnet_nginx_ssl_port}}" }  
+            

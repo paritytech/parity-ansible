@@ -1,0 +1,4 @@
+dependencies:
+  - role: ssl
+  - role: node_app
+  - role: nginx  

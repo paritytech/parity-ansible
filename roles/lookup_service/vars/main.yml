@@ -1,0 +1,15 @@
+ssl_cert: "{{parity_ssl_cert}}"
+ssl_key: "{{parity_ssl_key}}"
+service_name: "lookup_service"
+testnet_domain_names:
+  - id.parity.io
+  - lookup-service-test.parity.io
+mainnet_domain_names:
+  - id.parity.io
+  - lookup-service-main.parity.io
+testnet_nginx_ssl_port: 8443
+mainnet_nginx_ssl_port: 443
+testnet_app_port: 3001
+mainnet_app_port: 3000
+disable_http: yes
+service_repo: https://github.com/ethcore/lookup-service.git

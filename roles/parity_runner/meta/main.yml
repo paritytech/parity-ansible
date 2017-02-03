@@ -1,0 +1,5 @@
+dependencies:
+  - { role: parity, tags: [parity,dependency] }
+  - { role: pm2,
+      app_name: "parity" }
+

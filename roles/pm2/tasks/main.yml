@@ -1,0 +1,8 @@
+- name: install pm2
+  become: yes
+  npm: name=pm2 global=yes
+
+- name: copy the pm2 config
+  template: src={{pm2_template}} dest={{pm2_config_path}}
+  tags: update
+  notify: restart pm2

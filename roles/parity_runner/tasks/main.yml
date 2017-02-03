@@ -1,0 +1,7 @@
+- name: copy parity run-scripts
+  template: src="{{ item.template }}" dest="{{base_dir}}/{{ item.name }}"
+  with_items: "{{ parity_run_scripts }}"
+  notify: restart pm2 
+  tags:
+    - update
+

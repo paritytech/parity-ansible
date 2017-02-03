@@ -1,0 +1,11 @@
+[
+  {
+    "name"              : "parity",
+    "script"            : "run-parity.sh",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "bash"
+  }
+]

@@ -9,5 +9,4 @@
         domain_name: "morden.io",
         ssl_cert: "{{morden_ssl_cert}}",
         ssl_key: "{{morden_ssl_key}}",
-        stats_pm2_template: ./templates/morden-stats-pm2.json
-        }
+        stats_pm2_template: ./templates/morden-stats-pm2.json }

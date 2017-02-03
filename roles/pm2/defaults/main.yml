@@ -1,5 +1,1 @@
 pm2_config_path: "{{base_dir}}/{{app_name}}.json"
-pm2_port: 80
-local_only: no
-# pm2_ssl_port: 
-

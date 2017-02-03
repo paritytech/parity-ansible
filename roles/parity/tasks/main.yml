@@ -8,4 +8,13 @@
 - name: install parity
   shell: dpkg -i "{{base_dir}}/parity.deb"
   become: yes
+  notify: restart pm2
   tags: update
+
+- name: copy parity run-script
+  template: src=run-parity.sh dest="{{base_dir}}/run-parity.sh"
+  notify: restart pm2
+  when: run_parity_with is defined
+  tags:
+    - update
+
