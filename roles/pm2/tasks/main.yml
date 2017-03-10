@@ -4,5 +4,6 @@
 
 - name: copy the pm2 config
   template: src={{pm2_template}} dest={{pm2_config_path}}
+  when: pm2_template is defined
   tags: update
   notify: restart pm2

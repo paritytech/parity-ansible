@@ -1,6 +1,6 @@
 ssl_cert: "{{parity_ssl_cert}}"
 ssl_key: "{{parity_ssl_key}}"
-service_name: "lookup_service"
+service_name: "lookup-service"
 testnet_domain_names:
   - id.parity.io
   - lookup-service-test.parity.io

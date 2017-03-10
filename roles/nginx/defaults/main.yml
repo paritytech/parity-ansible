@@ -3,3 +3,5 @@ nginx_ssl_port: 443
 app_port: 3000
 app_template:
 disable_http: no
+ssl_crt_path: "{{ssl_install_path}}/{{ssl_crt_file_name}}"
+ssl_key_path: "{{ssl_install_path}}/{{ssl_key_file_name}}"

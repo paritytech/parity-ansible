@@ -1,0 +1,8 @@
+dependencies:
+  - parity
+  - { role: pm2, app_name: kovan }
+  - { role: node_app,
+      repo: "https://github.com/cubedro/eth-net-intelligence-api.git",
+      app_name: "stats",
+      install_dir: "stats",
+      tags: "stats"}

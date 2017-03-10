@@ -2,3 +2,4 @@
 cloud_shepard.json
 *.retry
 .vault_password
+configs

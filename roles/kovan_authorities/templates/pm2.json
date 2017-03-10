@@ -1,0 +1,35 @@
+[
+  {
+    "name"              : "stats",
+    "script"            : "app.js",
+    "cwd"               : "stats",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "localhost",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "{{netstats_name}}",
+      "CONTACT_DETAILS" : "",
+      "WS_SERVER"       : "wss://{{ kovan_stats_domain }}",
+      "WS_SECRET"       : "{{ kovan_stats_secret }}",
+      "VERBOSITY"       : 2
+    }
+  },
+  {
+    "name"              : "parity",
+    "script"            : "run.sh",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "bash"
+  }
+]

@@ -1,0 +1,29 @@
+- include: install_python.yml
+  vars:
+    hosts: kovan-stats
+  tags: "dependency"
+
+  
+- hosts:
+    - kovan-stats
+  roles:
+    - { role: stats,
+        secret: "{{ kovan_stats_secret }}",
+        domain_name: "{{ kovan_stats_domain }}",
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}",
+        repo: "https://github.com/jesuscript/eth-netstats.git" }
+    - { role: ssl,
+        ssl_crt_file_name: kovan.crt,
+        ssl_key_file_name: kovan.key,
+        ssl_cert: "{{kovan_network_ssl_cert}}",
+        ssl_key: "{{kovan_network_ssl_key}}"}
+    - { role: nginx,
+        nginx_port: 80,
+        app_name: stats_kovan_network,
+        domain_name: "stats.kovan.network",
+        nginx_ssl_port: 443,
+        app_port: "{{ node_port }}",
+        app_template: proxy_pass.conf,
+        ssl_crt_path: "{{base_dir}}/.ssl/kovan.crt",
+        ssl_key_path: "{{base_dir}}/.ssl/kovan.key" }

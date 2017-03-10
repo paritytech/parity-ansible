@@ -1,4 +1,6 @@
 - include: install_python.yml
+  vars:
+    hosts: warp-bootnodes-ropsten
   tags: "dependency"
 
 - hosts:

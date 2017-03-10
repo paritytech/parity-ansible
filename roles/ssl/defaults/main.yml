@@ -1,1 +1,3 @@
 ssl_install_path: "{{base_dir}}/.ssl"
+ssl_crt_file_name: ssl.crt
+ssl_key_file_name: ssl.key

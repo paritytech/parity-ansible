@@ -1,0 +1,25 @@
+- name: copy parity simple run-script
+  template: src=simple-run.sh dest="{{base_dir}}/simple-run.sh"
+
+- name: start parity
+  shell: pm2 start "{{base_dir}}/simple-run.sh"
+
+- name: get enodes
+  uri:
+    url: http://localhost:8545
+    method: POST
+    body: {
+      jsonrpc: "2.0",
+      method: "parity_enode",
+      id: 1
+    }
+    body_format: json
+  register: enode
+
+- name: stop parity
+  shell: pm2 kill
+  
+
+- debug:
+    var: enode.json.result
+    

@@ -1,0 +1,34 @@
+- include: get_enodes.yml
+  tags:
+    - get_enodes
+
+- name: create the key dir
+  when: inventory_hostname in groups['authorities']
+  file:
+    path: ~/.local/share/io.parity.ethereum/keys/Kovan
+    state: directory
+
+- name: copy the run script
+  template: src="{{"authorities" if inventory_hostname in groups['authorities'] else "bootnodes"}}-run.sh" dest="{{base_dir}}/run.sh"
+  tags:
+    - init_chain
+    - run-script
+    - update
+    
+- name: copy the pm2 config
+  template: src=pm2.json dest="{{base_dir}}/kovan.json"
+  tags:
+    - init_chain
+    - pm2
+    - update
+
+- name: start parity
+  shell: pm2 kill && pm2 start "{{base_dir}}/kovan.json"
+  tags:
+    - init_chain
+    - restart
+    - pm2
+    - update
+  
+  
+

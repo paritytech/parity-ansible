@@ -1,4 +1,4 @@
-- hosts: "{{hosts}}"
+- hosts: "{{hosts if hosts is defined else 'all'}}"
   gather_facts: no
   tags: dependency
   tasks:
