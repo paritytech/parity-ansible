@@ -7,5 +7,5 @@
     - { role: gitsync,
         ssl_cert: "{{parity_ssl_cert}}",
         ssl_key: "{{parity_ssl_key}}",
-        git_src_address: "git@github.com:ethcore/parity.git",
+        git_src_address: "git@github.com:paritytech/parity.git",
         git_trg_address: "git@gitlab.ethcore.io:parity/parity.git" }

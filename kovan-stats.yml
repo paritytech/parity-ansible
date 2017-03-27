@@ -21,7 +21,7 @@
     - { role: nginx,
         nginx_port: 80,
         app_name: stats_kovan_network,
-        domain_name: "stats.kovan.network",
+        domain_name: "authorities.kovan.network",
         nginx_ssl_port: 443,
         app_port: "{{ node_port }}",
         app_template: proxy_pass.conf,

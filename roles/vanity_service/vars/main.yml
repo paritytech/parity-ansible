@@ -1,4 +1,4 @@
 app_name: vanity-service
-repo: git@github.com:ethcore/vanity-service.git
+repo: git@github.com:paritytech/vanity-service.git
 pm2_template: ./roles/vanity_service/templates/pm2.json
 mongo_db_name: vanity_service

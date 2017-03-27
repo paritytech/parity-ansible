@@ -4,7 +4,7 @@
     - { role: cla_bot,
         tags: "cla-bot",
         github_bot_user: "ethcore-cla-bot",
-        github_repo_owner: "ethcore",
+        github_repo_owner: "paritytech",
         github_repo: "parity",
         domain: "https://cla.ethcore.io",
         ssl_cert: "{{ethcore_ssl_cert}}",

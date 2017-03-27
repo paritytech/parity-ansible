@@ -22,8 +22,25 @@
     - pm2
     - update
 
+- name: stop pm2
+  shell: pm2 kill
+  tags:
+    - init_chain
+    - restart
+    - pm2
+    - update
+
+- name: kill the db
+  shell: parity --chain kovan db kill
+  when: kill_db | bool
+  tags:
+    - init_chain
+    - restart
+    - pm2
+    - update
+  
 - name: start parity
-  shell: pm2 kill && pm2 start "{{base_dir}}/kovan.json"
+  shell: pm2 start "{{base_dir}}/kovan.json"
   tags:
     - init_chain
     - restart

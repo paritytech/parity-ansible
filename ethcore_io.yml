@@ -3,34 +3,34 @@
 
 - hosts:
     - ethcore-io-server
-  vars:
-    ssl_install_path: /etc/nginx
   roles:
     - { role: ethcore_io_server,
         app_name: website,
-        ssl_cert: "{{ethcore_ssl_cert}}",
-        ssl_key: "{{ethcore_ssl_key}}" }
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}",
+        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        domain_name: parity.io }
     - { role: redirect,
         app_name: install-redirect,
         from_domain: get-deps.ethcore.io,
-        to_url: "https://raw.githubusercontent.com/ethcore/scripts/master/install-deps.sh",
+        to_url: "https://raw.githubusercontent.com/paritytech/scripts/master/install-deps.sh",
         tags: redirect,
         ssl_cert: "{{ethcore_ssl_cert}}",
         ssl_key: "{{ethcore_ssl_key}}" }
     - { role: redirect,
         app_name: install-parity-redirect,
         from_domain: get-parity.ethcore.io,
-        to_url: "https://raw.githubusercontent.com/ethcore/scripts/master/install-parity.sh",
+        to_url: "https://raw.githubusercontent.com/paritytech/scripts/master/install-parity.sh",
         tags: redirect,
         ssl_cert: "{{ethcore_ssl_cert}}",
         ssl_key: "{{ethcore_ssl_key}}" }
     - { role: redirect,
         app_name: parity-redirect,
-        from_domain: "parity.io www.parity.io",
-        to_url: "https://ethcore.io",
-        ssl_cert: "{{parity_ssl_cert}}",
-        ssl_key: "{{parity_ssl_key}}",
-        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        from_domain: "ethcore.io www.ethcore.io",
+        to_url: "https://parity.io",
+        ssl_cert: "{{ethcore_ssl_cert}}",
+        ssl_key: "{{ethcore_ssl_key}}",
+        ssl_install_path: "{{base_dir}}/.ssl-ethcore",
         tags: redirect }
     - { role: redirect,
         app_name: get-parity-redirect,
@@ -38,7 +38,7 @@
         to_url: "https://get-parity.ethcore.io",
         ssl_cert: "{{parity_ssl_cert}}",
         ssl_key: "{{parity_ssl_key}}",
-        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        ssl_install_path: "{{base_dir}}/.ssl-ethcore",
         tags: redirect }
     - { role: redirect,
         app_name: parity-chrome-extension,
@@ -46,5 +46,5 @@
         to_url: "https://chrome.google.com/webstore/detail/parity-signer-ui/fgodinogimdopkigkcoelpfkbnpngalc?authuser=1",
         ssl_cert: "{{parity_ssl_cert}}",
         ssl_key: "{{parity_ssl_key}}",
-        ssl_install_path: "{{base_dir}}/.ssl-parity",
+        ssl_install_path: "{{base_dir}}/.ssl-ethcore",
         tags: redirect }

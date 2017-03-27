@@ -1,0 +1,14 @@
+- include: install_python.yml
+  vars:
+    hosts: kovan-public-stats
+  tags: "dependency"
+
+- hosts:
+    - kovan-public-stats
+  roles:
+    - { role: stats,
+        secret: "{{kovan_public_stats_secret}}",
+        domain_name: "{{kovan_public_stats_domain}}",
+        ssl_cert: "{{kovan_network_ssl_cert}}",
+        ssl_key: "{{kovan_network_ssl_key}}",
+        repo: "https://github.com/jesuscript/eth-netstats.git" }

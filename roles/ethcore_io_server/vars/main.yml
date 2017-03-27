@@ -1,5 +1,4 @@
-repo: git@github.com:ethcore/website.git
+repo: git@github.com:paritytech/website.git
 install_dir: "{{base_dir}}/{{app_name}}"
 server_dir: "/var/www/{{app_name}}"
-domain_name: ethcore.io
 nginx_template: ./roles/ethcore_io_server/templates/nginx.conf
