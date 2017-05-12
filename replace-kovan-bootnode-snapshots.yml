@@ -1,0 +1,8 @@
+- hosts:
+    - bootnodes
+  roles:
+    - { role: replace_snapshots,
+        template_src: roles/kovan_authorities/templates/bootnodes-run.sh,
+        template_dest: "{{base_dir}}/run.sh",
+        pm2_file: "{{base_dir}}/kovan.json" }
+    

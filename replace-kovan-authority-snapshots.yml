@@ -1,0 +1,7 @@
+- hosts:
+    - authorities
+  roles:
+    - { role: replace_snapshots,
+        template_src: roles/kovan_authorities/templates/authorities-run.sh,
+        template_dest: "{{base_dir}}/run.sh",
+        pm2_file: "{{base_dir}}/kovan.json" }

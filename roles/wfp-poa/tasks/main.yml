@@ -1,0 +1,92 @@
+- name: copy the chain spec
+  template: src=chainspec.json dest="{{base_dir}}/chainspec.json"
+  tags:
+    - init_chain
+    - access_node
+
+- name: stop pm2
+  shell: pm2 kill
+  tags:
+    - init_chain
+    - add_peers
+    
+- name: kill the db
+  shell: "{{base_dir}}/parity --chain chainspec.json db kill"
+  when: kill_db | bool
+  tags:
+    - update
+    - kill_db
+
+
+- name: copy parity simple run-script
+  template: src=simple-run.sh dest="{{base_dir}}/simple-run.sh"
+  tags:
+    - generate_address
+
+- name: start parity
+  shell: pm2 start "{{base_dir}}/simple-run.sh"
+  tags:
+    - generate_address
+
+- name: generate accounts
+  uri:
+    url: http://localhost:8545
+    method: POST
+    body: {
+      method: "parity_newAccountFromPhrase",
+      params: ["{{ phrase }}", "{{ pass }}"],
+      jsonrpc: "2.0",
+      id: 1
+    }
+    body_format: json
+  register: address
+  tags:
+    - generate_address
+  
+- name: stop pm2
+  shell: pm2 kill
+  tags:
+    - generate_address
+
+- debug:
+    var: address.json.result
+  tags:
+    - generate_address
+    
+- name: copy the access run-script
+  template: src=access-run.sh dest="{{base_dir}}/run.sh"
+  tags:
+    - access_node
+    
+- name: copy the full run-script
+  template: src=run.sh dest="{{base_dir}}/run.sh"
+  tags:
+    - init_chain
+    - add_peers
+
+
+- name: copy the password
+  copy: content="{{ pass }}" dest="{{base_dir}}/pass"
+  tags:
+    - init_chain
+
+
+- name: copy reserved peers
+  template: src=reserved-nodes dest="{{base_dir}}/reserved-nodes"
+  tags:
+    - add_peers
+    - access_node
+    - reserved_nodes
+  
+- name: start parity
+  shell: pm2 start "{{base_dir}}/run.sh"
+  tags:
+    - init_chain
+    - restart
+    - pm2
+    - update
+    - add_peers
+    - access_node
+  
+  
+

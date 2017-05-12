@@ -1,0 +1,12 @@
+- include: install_python.yml
+  vars:
+    hosts: all
+  tags:
+    - dependency
+    - python
+
+- hosts:
+    - wfp-authorities
+  roles:
+    - { role: wfp-poa }
+  

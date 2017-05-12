@@ -1,0 +1,28 @@
+- name: stop the node
+  shell: pm2 kill
+  tags:
+    - remove-snapshot
+- name: remove existing snapshots
+  file:
+    state: absent
+    path: ~/.local/share/io.parity.ethereum/chains/ethereum/db/906a34e69aec8c0d/snapshot/current
+  tags:
+    - remove-snapshot
+- name: decompress the snapshot
+  unarchive:
+    remote_src: True
+    copy: False
+    src: http://deneb.cach.co/dump/fzy236qf/9uwq/2017-03-24-12-17-snapshot.tar.gz
+    dest: "~/.local/share/io.parity.ethereum/chains/ethereum/db/906a34e69aec8c0d/snapshot/"
+    tags:
+      - up
+- name: copy the run script
+  template: src="{{template_src}}" dest="{{template_dest}}"
+  tags:
+    - up
+    - remove-snapshot
+- name: start the node
+  shell: pm2 start "{{pm2_file}}"
+  tags:
+    - up
+    - remove-snapshot

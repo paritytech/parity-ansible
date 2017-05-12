@@ -1,0 +1,13 @@
+- include: install_python.yml
+  vars:
+    hosts: gitsync-pbc
+  tags: "dependency"
+
+- hosts:
+    - gitsync-pbc
+  roles:
+    - { role: gitsync,
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}",
+        git_src_address: "git@github.com:paritytech/parity-bitcoin.git",
+        git_trg_address: "git@gitlab.parity.io:parity/parity-bitcoin.git" }

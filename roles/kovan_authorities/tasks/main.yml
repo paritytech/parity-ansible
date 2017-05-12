@@ -1,7 +1,3 @@
-- include: get_enodes.yml
-  tags:
-    - get_enodes
-
 - name: create the key dir
   when: inventory_hostname in groups['authorities']
   file:

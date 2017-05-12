@@ -1,4 +1,6 @@
 - include: install_python.yml
+  vars:
+    hosts: gitsync
   tags: "dependency"
 
 - hosts:
@@ -8,4 +10,4 @@
         ssl_cert: "{{parity_ssl_cert}}",
         ssl_key: "{{parity_ssl_key}}",
         git_src_address: "git@github.com:paritytech/parity.git",
-        git_trg_address: "git@gitlab.ethcore.io:parity/parity.git" }
+        git_trg_address: "git@gitlab.parity.io:parity/parity.git" }

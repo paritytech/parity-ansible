@@ -1,0 +1,2 @@
+dependencies:
+  - { role: pm2, app_name: wfp, tags: "dependency"}

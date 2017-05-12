@@ -1,0 +1,5 @@
+- hosts:
+    - wfp-access-node
+  roles:
+    - { role: wfp-poa }
+  

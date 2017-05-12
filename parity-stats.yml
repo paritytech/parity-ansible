@@ -1,3 +1,10 @@
+- include: install_python.yml
+  vars:
+    hosts: parity-stats
+  tags:
+    - dependency
+    - python
+    
 - hosts:
     - parity-stats
   roles:

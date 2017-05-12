@@ -3,10 +3,9 @@
   roles:
     - { role: cla_bot,
         tags: "cla-bot",
-        github_bot_user: "ethcore-cla-bot",
+        github_bot_user: "parity-cla-bot",
         github_repo_owner: "paritytech",
         github_repo: "parity",
-        domain: "https://cla.ethcore.io",
-        ssl_cert: "{{ethcore_ssl_cert}}",
-        ssl_key: "{{ethcore_ssl_key}}"
-      }
+        domain: "https://cla.parity.io",
+        ssl_cert: "{{parity_ssl_cert}}",
+        ssl_key: "{{parity_ssl_key}}" }
