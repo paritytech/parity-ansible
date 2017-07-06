@@ -7,9 +7,10 @@
     "cwd": "{{ app_name }}",
     "env": {
       "GITHUB_SECRET": "{{ github_secret }}",
-      "GIT_WORKDIR_PATH": "git_workdir",
+      "GIT_DIR": "parity_git",
       "GIT_SRC": "{{ git_src_address }}",
       "GIT_TRG": "{{ git_trg_address }}",
+      "MIRROR_BRANCHES": ["master", "beta", "stable"],
       "PORT": 80,
       "SSL_PORT": 443,
       "SSL_CERT": "{{ssl_install_path}}/ssl.crt",
