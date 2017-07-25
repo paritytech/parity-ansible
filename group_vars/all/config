@@ -1,4 +1,4 @@
-ansible_ssh_user: root
+ansible_ssh_user: "{{user}}"
 
 base_dir: "{{ ansible_env.HOME }}"
 
