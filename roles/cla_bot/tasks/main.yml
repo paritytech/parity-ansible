@@ -1,0 +1,3 @@
+- name: install coffeescript
+  command: pm2 install coffeescript
+
