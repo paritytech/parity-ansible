@@ -1,3 +1,3 @@
 #!/bin/bash
 
-parity --warp --no-dapps --no-ui
+parity --warp --no-ws --no-dapps --no-ui
